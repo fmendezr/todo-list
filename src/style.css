@@ -16,6 +16,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 2.5vw;
+    height: 5rem;
     background-color: rgb(255, 0, 93);
 }
 
@@ -43,10 +44,22 @@ header > button {
 footer {
     display: flex;
     justify-content: center;
+    align-self: center;
+    height: 2rem;
     font-size: 1.75rem;
     background-color: rgb(111, 0, 255);
 }
 
 footer > p > a:visited{
     color: black
+}
+
+/* Main */ 
+
+main {
+    display: flex;
+    min-height: calc(100vh - 7rem);
+    background-color: black;
+    display: grid;
+    
 }
