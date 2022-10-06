@@ -2,8 +2,39 @@
     margin: 0;
     padding: 0;
     border: 0;
+    font-family: "Teko", serif;
 }
 
+:root {
+    font-size: calc(10px + 0.5vw);
+}
+
+/* Header */
+
 header {
-    background-color: brown;
+    display: flex;
+    align-items: center;
+    width: 95%;
+    margin: auto;
+    justify-content: space-between;
+    background-color: rgb(255, 0, 93);
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+}
+
+#logo > img {
+    height: 3.5rem;
+}
+
+#logo > h1 {
+    font-size: 3.5rem;
+}
+
+header > button {
+    height: 3.5rem;
+    width: 3.5rem;
+    background: none;
 }
