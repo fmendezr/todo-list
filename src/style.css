@@ -14,9 +14,8 @@
 header {
     display: flex;
     align-items: center;
-    width: 95%;
-    margin: auto;
     justify-content: space-between;
+    padding: 0 2.5vw;
     background-color: rgb(255, 0, 93);
 }
 
@@ -37,4 +36,17 @@ header > button {
     height: 3.5rem;
     width: 3.5rem;
     background: none;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    font-size: 1.75rem;
+    background-color: rgb(111, 0, 255);
+}
+
+footer > p > a:visited{
+    color: black
 }
