@@ -74,3 +74,19 @@ main {
     background-color: rgb(174, 255, 0);
 }
 
+/* sidebar */
+
+.projectContainer {
+    display: flex;
+}
+
+.projectContainer > p {
+    font-size: 1.75rem;
+}
+.projectIcon {
+    height: 2rem;
+}
+
+#customProjects > p {
+    font-size: 2rem;
+}
