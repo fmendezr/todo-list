@@ -60,6 +60,17 @@ main {
     display: flex;
     min-height: calc(100vh - 7.25rem);
     background-color: black;
-    display: grid;
-    
 }
+
+#sidebar {
+    width: 22.5vw;
+    padding-left: 2.5vw;
+    background-color: rgb(2, 255, 238);
+} 
+
+#currentProject {
+    width: 72.5vw;
+    padding-right: 2.5vw;
+    background-color: rgb(174, 255, 0);
+}
+
