@@ -1,6 +1,6 @@
 import "./style.css";
 import addSymbol from "./img/addIcon.svg";
-import {format} from "date-fns";
+import {add, format} from "date-fns";
 
 // Set up factories 
 const taskFactory = (name, description, dueDate, priority, notes, completed) => {
@@ -29,6 +29,11 @@ const createProjectBtn = () => {
     addProject.id = "addProject";
     addProject.classList.add("projectContainer");
     document.getElementById("customProjects").appendChild(addProject);
+
+    addProject.addEventListener("click", () => {
+        addProject.remove();
+        createProjectsComponent();
+    })
 
     let img = new Image();
     img.src = addSymbol;
@@ -67,7 +72,11 @@ const createProjectsComponent = () => {
     cancelBtn.id = "cancelProjectBtn";
     cancelBtn.textContent = "Cancel";
     div.appendChild(cancelBtn);
+
+    cancelBtn.addEventListener("click", () => {
+        projectCreator.remove();
+        createProjectBtn();
+    })
 }
 
 createProjectBtn();
-createProjectsComponent();
