@@ -24,7 +24,22 @@ const input = document.getElementById("dueDate");
 //    console.log(new Date([parts[0], parts[1], parts[2]]))
 //})
 
-const 
+const createProjectBtn = () => {
+    let addProject = document.createElement("div");
+    addProject.id = "addProject";
+    addProject.classList.add("projectContainer");
+    document.getElementById("customProjects").appendChild(addProject);
+
+    let img = new Image();
+    img.src = addSymbol;
+    img.classList.add("projectIcon");
+    img.alt = "addition symbol";
+    addProject.appendChild(img);
+
+    let text = document.createElement("p");
+    text.textContent = "Add Project";
+    addProject.appendChild(text);
+}
 
 const createProjectsComponent = () => {
     let projectCreator = document.createElement("div");
@@ -54,5 +69,5 @@ const createProjectsComponent = () => {
     div.appendChild(cancelBtn);
 }
 
-
+createProjectBtn();
 createProjectsComponent();
