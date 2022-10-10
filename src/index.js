@@ -24,7 +24,7 @@ const input = document.getElementById("dueDate");
 //    console.log(new Date([parts[0], parts[1], parts[2]]))
 //})
 
-const createProjectBtn = () => {
+const createProjectComponent = () => {
     let addProject = document.createElement("div");
     addProject.id = "addProject";
     addProject.classList.add("projectContainer");
@@ -32,7 +32,7 @@ const createProjectBtn = () => {
 
     addProject.addEventListener("click", () => {
         addProject.remove();
-        createProjectsComponent();
+        expandedCreateProjectComponent();
     })
 
     let img = new Image();
@@ -46,7 +46,7 @@ const createProjectBtn = () => {
     addProject.appendChild(text);
 }
 
-const createProjectsComponent = () => {
+const expandedCreateProjectComponent = () => {
     let projectCreator = document.createElement("div");
     projectCreator.id = "projectCreator";
     document.getElementById("customProjects").appendChild(projectCreator);
@@ -75,8 +75,22 @@ const createProjectsComponent = () => {
 
     cancelBtn.addEventListener("click", () => {
         projectCreator.remove();
-        createProjectBtn();
+        createProjectComponent();
     })
 }
 
-createProjectBtn();
+createProjectComponent();
+
+const currentProjectName = () => {
+    const projectName = document.createElement("h1");
+    projectName.textContent = inbox.name;
+    document.getElementById("currentProject").appendChild(projectName);
+}
+
+
+
+const currentProjectComponent = () => {
+    currentProjectName();
+}
+
+currentProjectComponent()
