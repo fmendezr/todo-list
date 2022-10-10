@@ -87,10 +87,25 @@ const currentProjectName = () => {
     document.getElementById("currentProject").appendChild(projectName);
 }
 
+const addTaskComponent = () => {
+    const addTaskBtn = document.createElement("div");
+    addTaskBtn.id = "addTask";
+    document.getElementById("currentProject").appendChild(addTaskBtn);
 
+    const img = new Image();
+    img.src = addSymbol;
+    img.classList.add("projectIcon");
+    img.alt = "addition symbol";
+    addTaskBtn.appendChild(img);
+
+    const text = document.createElement("p");
+    text.textContent = "Add Task";
+    addTaskBtn.appendChild(text);
+}
 
 const currentProjectComponent = () => {
     currentProjectName();
+    addTaskComponent();
 }
 
 currentProjectComponent()
