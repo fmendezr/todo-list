@@ -103,9 +103,69 @@ const addTaskComponent = () => {
     addTaskBtn.appendChild(text);
 }
 
+const expandedAddTaskComponent = () => {
+    let taskCreator = document.createElement("div");
+    taskCreator.id = "taskCreator";
+    document.getElementById("currentProject").appendChild(taskCreator);
+
+    let form = document.createElement("form");
+    taskCreator.appendChild(form);
+
+    let labelName = document.createElement("label");
+    labelName.textContent = "Name"
+    labelName.for = "nameInput";
+    form.appendChild(labelName)
+    
+    let nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.id = "nameInput";
+    form.appendChild(nameInput);
+
+    let labelDueDate = document.createElement("label");
+    labelDueDate.textContent = "Due Date";
+    labelDueDate.for = "dueDateInput";
+    form.appendChild(labelDueDate);
+
+    let dueDateInput = document.createElement("input");
+    dueDateInput.type = "date";
+    dueDateInput.id = "dueDateInput";
+    form.appendChild(dueDateInput);
+
+    let labelDescription = document.createElement("label");
+    labelDescription.textContent = "Description"
+    labelDescription.for = "descriptionInput";
+    form.appendChild(labelDescription);
+
+    let descriptionInput = document.createElement("input");
+    descriptionInput.type = "text";
+    descriptionInput.id = "descriptionInput";
+    form.appendChild(descriptionInput);
+
+    let labelNotes = document.createElement("label");
+    labelNotes.textContent = "Notes";
+    labelNotes.for = "notesInput";
+    form.appendChild(labelNotes);
+
+    let notesInput = document.createElement("input");
+    notesInput.type = "text";
+    notesInput.id = "notesInput";
+    form.appendChild(notesInput)
+
+    let labelPriority = document.createElement("label");
+    labelPriority.textContent = "Priority";
+    labelPriority.for = "priorityInput";
+    form.appendChild(labelPriority);
+
+    let priorityInput = document.createElement("input");
+    priorityInput.type = "checkbox";
+    priorityInput.id = "priorityInput";
+    form.appendChild(priorityInput); 
+}
+
 const currentProjectComponent = () => {
     currentProjectName();
     addTaskComponent();
 }
 
 currentProjectComponent()
+expandedAddTaskComponent();
