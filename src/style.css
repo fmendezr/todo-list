@@ -121,3 +121,64 @@ main {
 #cancelProjectBtn {
     background-color: rgba(255, 43, 43, 0.750);
 }
+
+/* Current Project */
+
+#addTask {
+    display: flex;
+    align-items: center;
+}
+
+#addTask > p {
+    font-size: 1.75rem;
+}
+
+
+#taskCreator > form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    background-color: blanchedalmond;
+    border-radius: 1rem;
+    padding: 1rem 1rem 1rem;
+}
+
+#taskCreator > form > label, #priorityContainer > label {
+    font-size: 1.5rem;
+}
+
+#taskCreator > form > input{
+    font-size: 1.25rem;
+    height: 1.5rem;
+    border-radius: 0.25rem;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#priorityContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#btnsContainer {
+    align-self: center;
+    display: flex;
+    gap: 2rem;
+}
+
+#createTaskBtn, #cancelTaskBtn {
+    height: 2.25rem;
+    width: 8rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+}
+
+#createTaskBtn {
+    background-color: rgba(0, 155, 0, 0.75);
+}
+
+#cancelTaskBtn {
+    background-color: rgba(255, 43, 43, 0.750);
+}
