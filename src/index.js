@@ -151,15 +151,36 @@ const expandedAddTaskComponent = () => {
     notesInput.id = "notesInput";
     form.appendChild(notesInput)
 
+    let priorityContainer = document.createElement("div");
+    priorityContainer.id = "priorityContainer";
+    form.appendChild(priorityContainer)
+
     let labelPriority = document.createElement("label");
     labelPriority.textContent = "Priority";
     labelPriority.for = "priorityInput";
-    form.appendChild(labelPriority);
+    priorityContainer.appendChild(labelPriority);
 
     let priorityInput = document.createElement("input");
     priorityInput.type = "checkbox";
     priorityInput.id = "priorityInput";
-    form.appendChild(priorityInput); 
+    priorityContainer.appendChild(priorityInput); 
+
+    let div = document.createElement("div");
+    div.id= "btnsContainer";
+    form.appendChild(div);
+
+    let createBtn = document.createElement("button");
+    createBtn.type = "button";
+    createBtn.id = "createTaskBtn";
+    createBtn.textContent = "Create";
+    div.appendChild(createBtn)
+
+    let cancelBtn = document.createElement("button");
+    cancelBtn.type = "button";
+    cancelBtn.id = "cancelTaskBtn";
+    cancelBtn.textContent = "Cancel";
+    div.appendChild(cancelBtn);
+
 }
 
 const currentProjectComponent = () => {
