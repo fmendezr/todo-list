@@ -1,6 +1,8 @@
 import "./style.css";
 import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
+import expandSymbol from "./img/arrowUpIcon.svg";
+import unexpandSymbol from "./img/arrowDownIcon.svg";
 import {add, format} from "date-fns";
 
 // Set up factories 
@@ -204,9 +206,18 @@ const taskComponent = (taskObject) => {
     essentialInfo.id = "taskEssentialInfo"
     taskContainer.appendChild(essentialInfo);
 
+    let leftSideEssentialInfo = document.createElement("div");
+    leftSideEssentialInfo.id = "taskLeftSideEssentialInfo";
+    essentialInfo.appendChild(leftSideEssentialInfo)
+
     let taskName = document.createElement("p");
     taskName.textContent = taskObject.name;
-    essentialInfo.appendChild(taskName);
+    leftSideEssentialInfo.appendChild(taskName);
+
+    let expandBtn = new Image();
+    expandBtn.src = expandSymbol;
+    expandBtn.classList.add("projectIcon");
+    leftSideEssentialInfo.appendChild(expandBtn);
 
     let rightSideEssentialInfo = document.createElement("div");
     rightSideEssentialInfo.id = "taskRightSideEssentialInfo";
