@@ -124,9 +124,14 @@ main {
 
 /* Current Project */
 
+#currentProject > h1 {
+    margin-left: 1rem;
+}
+
 #addTask {
     display: flex;
     align-items: center;
+    margin-left: 1.25rem;
 }
 
 #addTask > p {
