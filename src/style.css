@@ -187,3 +187,19 @@ main {
 #cancelTaskBtn {
     background-color: rgba(255, 43, 43, 0.750);
 }
+
+#taskEssentialInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1.5rem;
+    background-color: red;
+    font-size: 1.75rem;
+    font-weight: 300;
+}
+
+#taskRightSideEssentialInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
