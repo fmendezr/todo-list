@@ -198,8 +198,9 @@ main {
     font-weight: 300;
 }
 
-#taskRightSideEssentialInfo {
+#taskRightSideEssentialInfo, #taskLeftSideEssentialInfo {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
