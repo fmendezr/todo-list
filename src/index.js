@@ -1,10 +1,11 @@
 import "./style.css";
 import addSymbol from "./img/addIcon.svg";
+import closeSymbol from "./img/closeIcon.svg";
 import {add, format} from "date-fns";
 
 // Set up factories 
-const taskFactory = (name, description, dueDate, priority, notes, completed) => {
-    return {name, description, dueDate, priority, notes, completed}
+const taskFactory = (name, description, dueDate, priority, completed = false) => {
+    return {name, description, dueDate, priority, completed}
 }
 
 const projectFactory = (name) => {
@@ -192,10 +193,34 @@ const expandedAddTaskComponent = () => {
     })
 }
 
-const taskComponent = () => {
+let trialTask = taskFactory("Drive", "G", "2022-11-11", true, true);
+console.log(trialTask)
 
+const taskComponent = (taskObject) => {
+    let taskContainer = document.createElement("div");
+    document.getElementById("currentProject").insertBefore(taskContainer, document.getElementById("addTask"));
+
+    let essentialInfo = document.createElement("div");
+    essentialInfo.id = "taskEssentialInfo"
+    taskContainer.appendChild(essentialInfo);
+
+    let taskName = document.createElement("p");
+    taskName.textContent = taskObject.name;
+    essentialInfo.appendChild(taskName);
+
+    let rightSideEssentialInfo = document.createElement("div");
+    rightSideEssentialInfo.id = "taskRightSideEssentialInfo";
+    essentialInfo.appendChild(rightSideEssentialInfo);
+
+    let dueDateInfo = document.createElement("p");
+    dueDateInfo.textContent = taskObject.dueDate;
+    rightSideEssentialInfo.appendChild(dueDateInfo);
+
+    let eliminateTask = new Image();
+    eliminateTask.src = closeSymbol;
+    eliminateTask.classList.add("projectIcon");
+    rightSideEssentialInfo.appendChild(eliminateTask);
 }
-
 
 const currentProjectComponent = () => {
     currentProjectName();
@@ -203,3 +228,5 @@ const currentProjectComponent = () => {
 }
 
 currentProjectComponent()
+
+taskComponent(trialTask);
