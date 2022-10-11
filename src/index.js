@@ -14,8 +14,8 @@ const projectFactory = (name) => {
 
 // set up default functions 
 const inbox = projectFactory("inbox")
-const btn = document.getElementById("btn");
-const input = document.getElementById("dueDate");
+//const btn = document.getElementById("btn");
+//const input = document.getElementById("dueDate");
 
 // Convert input into date
 //btn.addEventListener("click", () => {
@@ -91,6 +91,11 @@ const addTaskComponent = () => {
     const addTaskBtn = document.createElement("div");
     addTaskBtn.id = "addTask";
     document.getElementById("currentProject").appendChild(addTaskBtn);
+
+    addTaskBtn.addEventListener("click", () => {
+        addTaskBtn.remove();
+        expandedAddTaskComponent();
+    })
 
     const img = new Image();
     img.src = addSymbol;
@@ -181,7 +186,16 @@ const expandedAddTaskComponent = () => {
     cancelBtn.textContent = "Cancel";
     div.appendChild(cancelBtn);
 
+    cancelBtn.addEventListener("click", () => {
+        taskCreator.remove();
+        addTaskComponent();
+    })
 }
+
+const taskComponent = () => {
+
+}
+
 
 const currentProjectComponent = () => {
     currentProjectName();
@@ -189,4 +203,3 @@ const currentProjectComponent = () => {
 }
 
 currentProjectComponent()
-expandedAddTaskComponent();
