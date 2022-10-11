@@ -194,8 +194,14 @@ main {
     align-items: center;
     margin-left: 1.5rem;
     background-color: red;
+    border-radius: 1rem;
     font-size: 1.75rem;
     font-weight: 300;
+}
+
+#taskEssentialInfo:hover {
+    transition-duration: 250ms;
+    background-color: blueviolet;
 }
 
 #taskRightSideEssentialInfo, #taskLeftSideEssentialInfo {
@@ -204,3 +210,6 @@ main {
     gap: 1rem;
 }
 
+#taskLeftSideEssentialInfo {
+    margin-left: .5rem;
+}
