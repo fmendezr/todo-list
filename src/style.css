@@ -75,32 +75,6 @@ main {
     background-color: rgb(174, 255, 0);
 }
 
-@media all and (max-width: 450px) {
-    main {
-        flex-direction: column;
-    }
-
-    #sidebarTogglerMobile {
-        scale: 1;
-    }
-
-    #sidebar {
-        width: 100vw;
-        padding-bottom: 1rem;
-        scale: 0;
-        position: absolute;
-    }
-
-    #sidebar.active {
-        scale: 1;
-        position: static;
-    }
-
-    #currentProject {
-        width: 100vw;
-    }
-}
-
 /* sidebar */
 
 .projectContainer {
@@ -249,4 +223,30 @@ main {
 .descriptionTask {
     margin-left: 1rem;
     font-size: 1.5rem;
+}
+
+@media all and (max-width: 450px) {
+    main {
+        flex-direction: column;
+    }
+
+    #sidebarTogglerMobile {
+        scale: 1;
+    }
+
+    #sidebar {
+        width: 100vw;
+        padding-bottom: 1rem;
+        scale: 0;
+        position: absolute;
+    }
+
+    #sidebar.active {
+        scale: 1;
+        position: static;
+    }
+
+    #currentProject {
+        width: 100vw;
+    }
 }
