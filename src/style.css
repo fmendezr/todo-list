@@ -85,7 +85,17 @@ main {
 
 .projectContainer {
     display: flex;
-    margin-left: 1.25rem;
+    align-items: center;
+    margin: 0 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.projectContainer:hover, .customProjectContainer:hover {
+    background-color: blanchedalmond;
+}
+
+.projectContainer.active {
+    background-color: red;
 }
 
 .projectContainer > p {
@@ -130,6 +140,22 @@ main {
 
 #cancelProjectBtn {
     background-color: rgba(255, 43, 43, 0.750);
+}
+
+.customProjectContainer{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.leftSideCustomProject, .rightSideCustomProject {
+    display: flex;
+    align-items: center;
+}
+
+.leftSideCustomProject > p {
+    font-size: 1.75rem;
 }
 
 /* Current Project */
