@@ -33,10 +33,11 @@ header {
     font-size: 3.5rem;
 }
 
-header > button {
+#sidebarTogglerMobile {
     height: 3.5rem;
     width: 3.5rem;
     background: none;
+    scale: 0;
 }
 
 /* Footer */
@@ -62,18 +63,42 @@ main {
     background-color: black;
 }
 
-
 #sidebar {
     width: 22.5vw;
     padding-left: 2.5vw;
     background-color: rgb(2, 255, 238);
 } 
 
-
 #currentProject {
     width: 72.5vw;
     padding-right: 2.5vw;
     background-color: rgb(174, 255, 0);
+}
+
+@media all and (max-width: 450px) {
+    main {
+        flex-direction: column;
+    }
+
+    #sidebarTogglerMobile {
+        scale: 1;
+    }
+
+    #sidebar {
+        width: 100vw;
+        padding-bottom: 1rem;
+        scale: 0;
+        position: absolute;
+    }
+
+    #sidebar.active {
+        scale: 1;
+        position: static;
+    }
+
+    #currentProject {
+        width: 100vw;
+    }
 }
 
 /* sidebar */
@@ -193,6 +218,7 @@ main {
 .taskContainer {
     background-color: red;
     margin-left: 1.5rem;
+    margin-right: 1.5rem;
     border-radius: 1rem;
     font-size: 1.75rem;
     font-weight: 300;

@@ -84,6 +84,16 @@ const expandedCreateProjectComponent = () => {
 
 createProjectComponent();
 
+document.getElementById("sidebarTogglerMobile").addEventListener("click", () => {
+    if(window.innerWidth <= 461){
+        if(document.getElementById("sidebar").classList.contains("active")){
+            document.getElementById("sidebar").classList.remove("active");
+        } else {
+            document.getElementById("sidebar").classList.add("active");
+        }     
+    }
+})
+
 const currentProjectName = () => {
     const projectName = document.createElement("h1");
     projectName.textContent = inbox.name;
