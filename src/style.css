@@ -62,11 +62,13 @@ main {
     background-color: black;
 }
 
+
 #sidebar {
     width: 22.5vw;
     padding-left: 2.5vw;
     background-color: rgb(2, 255, 238);
 } 
+
 
 #currentProject {
     width: 72.5vw;
@@ -188,28 +190,37 @@ main {
     background-color: rgba(255, 43, 43, 0.750);
 }
 
-#taskEssentialInfo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 1.5rem;
+.taskContainer {
     background-color: red;
+    margin-left: 1.5rem;
     border-radius: 1rem;
     font-size: 1.75rem;
     font-weight: 300;
 }
 
-#taskEssentialInfo:hover {
+.taskContainer:hover {
     transition-duration: 250ms;
     background-color: blueviolet;
+    border-radius: 1rem;
 }
 
-#taskRightSideEssentialInfo, #taskLeftSideEssentialInfo {
+.taskEssentialInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskRightSideEssentialInfo, .taskLeftSideEssentialInfo {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-#taskLeftSideEssentialInfo {
+.taskLeftSideEssentialInfo {
     margin-left: .5rem;
+}
+
+.descriptionTask {
+    margin-left: 1rem;
+    font-size: 1.5rem;
 }
