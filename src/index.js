@@ -3,6 +3,7 @@ import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
 import expandSymbol from "./img/arrowUpIcon.svg";
 import unexpandSymbol from "./img/arrowDownIcon.svg";
+import customProjectSymbol from "./img/customProjectIcon.svg";
 import {add, format} from "date-fns";
 
 // Set up factories 
@@ -26,6 +27,45 @@ const inbox = projectFactory("inbox")
 //    let parts = input.value.split("-")
 //    console.log(new Date([parts[0], parts[1], parts[2]]))
 //})
+
+document.getElementById("sidebarTogglerMobile").addEventListener("click", () => {
+    if(window.innerWidth <= 461){
+        if(document.getElementById("sidebar").classList.contains("active")){
+            document.getElementById("sidebar").classList.remove("active");
+        } else {
+            document.getElementById("sidebar").classList.add("active");
+        }     
+    }
+})
+
+const customProjectComponent = (project) => {
+    let div = document.createElement("div");
+    div.classList.add("customProjectContainer");
+    document.getElementById("customProjects").insertBefore(div, document.getElementById("addProject"))
+
+    let leftSide = document.createElement("div");
+    leftSide.classList.add("leftSideCustomProject")
+    div.appendChild(leftSide);
+    
+    let img = new Image();
+    img.src = customProjectSymbol;
+    img.classList.add("projectIcon");
+    leftSide.appendChild(img);
+
+    let name = document.createElement("p");
+    name.classList.add("customProjectName");
+    name.textContent = project.name;
+    leftSide.appendChild(name);
+
+    let rightSide = document.createElement("div");
+    rightSide.classList.add("rightSideCustomProject");
+    div.appendChild(rightSide)
+
+    let deleteCustomProjectBtn = new Image();
+    deleteCustomProjectBtn.src = closeSymbol;
+    deleteCustomProjectBtn.classList.add("projectIcon");
+    rightSide.appendChild(deleteCustomProjectBtn);
+}
 
 const createProjectComponent = () => {
     let addProject = document.createElement("div");
@@ -83,16 +123,6 @@ const expandedCreateProjectComponent = () => {
 }
 
 createProjectComponent();
-
-document.getElementById("sidebarTogglerMobile").addEventListener("click", () => {
-    if(window.innerWidth <= 461){
-        if(document.getElementById("sidebar").classList.contains("active")){
-            document.getElementById("sidebar").classList.remove("active");
-        } else {
-            document.getElementById("sidebar").classList.add("active");
-        }     
-    }
-})
 
 const currentProjectName = () => {
     const projectName = document.createElement("h1");
@@ -205,9 +235,6 @@ const expandedAddTaskComponent = () => {
     })
 }
 
-let trialTask = taskFactory("Drive", "G", "2022-11-11", true, true);
-console.log(trialTask)
-
 const taskComponent = (taskObject) => {
     let taskContainer = document.createElement("div");
     taskContainer.classList.add("taskContainer");
@@ -275,4 +302,12 @@ const currentProjectComponent = () => {
 
 currentProjectComponent()
 
+let trialTask = taskFactory("Drive", "G", "2022-11-11", true, true);
+console.log(trialTask)
+let trialProject = projectFactory("trial");
+console.log(trialProject.name);
+
 taskComponent(trialTask);
+taskComponent(trialTask);
+
+customProjectComponent(trialProject)
