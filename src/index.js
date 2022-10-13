@@ -200,14 +200,15 @@ console.log(trialTask)
 
 const taskComponent = (taskObject) => {
     let taskContainer = document.createElement("div");
+    taskContainer.classList.add("taskContainer");
     document.getElementById("currentProject").insertBefore(taskContainer, document.getElementById("addTask"));
 
     let essentialInfo = document.createElement("div");
-    essentialInfo.id = "taskEssentialInfo"
+    essentialInfo.classList.add("taskEssentialInfo");
     taskContainer.appendChild(essentialInfo);
 
     let leftSideEssentialInfo = document.createElement("div");
-    leftSideEssentialInfo.id = "taskLeftSideEssentialInfo";
+    leftSideEssentialInfo.classList.add("taskLeftSideEssentialInfo");
     essentialInfo.appendChild(leftSideEssentialInfo)
 
     let taskName = document.createElement("p");
@@ -219,8 +220,12 @@ const taskComponent = (taskObject) => {
     expandBtn.classList.add("projectIcon");
     leftSideEssentialInfo.appendChild(expandBtn);
 
+    expandBtn.addEventListener("click", () => {
+        expandedTaskComponent(taskObject, taskContainer, expandBtn, leftSideEssentialInfo);
+    })
+
     let rightSideEssentialInfo = document.createElement("div");
-    rightSideEssentialInfo.id = "taskRightSideEssentialInfo";
+    rightSideEssentialInfo.classList.add("taskRightSideEssentialInfo");
     essentialInfo.appendChild(rightSideEssentialInfo);
 
     let dueDateInfo = document.createElement("p");
@@ -231,6 +236,26 @@ const taskComponent = (taskObject) => {
     eliminateTask.src = closeSymbol;
     eliminateTask.classList.add("projectIcon");
     rightSideEssentialInfo.appendChild(eliminateTask);
+}
+
+const expandedTaskComponent = (taskObject, container, expandBtn, leftSideEssentialInfo) => {
+    let expandedData = document.createElement("div");
+    container.appendChild(expandedData);
+
+    let description = document.createElement("p");
+    description.classList.add("descriptionTask");
+    description.textContent = `Description: ${taskObject.description}`;
+    expandedData.appendChild(description);
+
+    let unexpandBtn = new Image();
+    unexpandBtn.src = unexpandSymbol;
+    unexpandBtn.classList.add("projectIcon");
+    leftSideEssentialInfo.replaceChild(unexpandBtn, expandBtn);
+
+    unexpandBtn.addEventListener("click", () => {
+        expandedData.remove();
+        leftSideEssentialInfo.replaceChild(expandBtn, unexpandBtn);
+    })
 }
 
 const currentProjectComponent = () => {
