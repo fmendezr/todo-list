@@ -1,18 +1,7 @@
 import "./style.css";
 import { createProjectComponent, currentProjectName, addTaskComponent, taskComponent, customProjectComponent, currentProjectComponent} from "./components";
+import { taskFactory, projectFactory} from "./factories";
 import {add, format} from "date-fns";
-
-// Set up factories 
-const taskFactory = (name, description, dueDate, priority, completed = false) => {
-    return {name, description, dueDate, priority, completed}
-}
-
-const projectFactory = (name) => {
-    let tasks = []
-    return {name, tasks}
-}
-
-const inbox = projectFactory("inbox")
 
 // make sidebar adjust base on view width
 document.getElementById("sidebarTogglerMobile").addEventListener("click", () => {
@@ -24,6 +13,9 @@ document.getElementById("sidebarTogglerMobile").addEventListener("click", () => 
         }     
     }
 })
+
+//default projects 
+const inbox = projectFactory("inbox")
 
 // default render 
 createProjectComponent();
