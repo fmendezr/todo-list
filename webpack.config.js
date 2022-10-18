@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     index: "./src/index.js",
     components: "./src/components.js",
+    factories: "./src/factories.js",
   },
   output: {
     filename: '[name].bundle.js',
