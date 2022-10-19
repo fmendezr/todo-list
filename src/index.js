@@ -1,7 +1,7 @@
 import "./style.css";
-import {currentProjectName,addTaskComponent , taskComponent, currentProjectComponent} from "./currentProjectComponents.js";
-import {customProjectComponent, createProjectComponent} from "./sidebarComponents.js"
-import { taskFactory, projectFactory} from "./factories.js";
+import {currentProjectName, addTaskComponent , taskComponent, currentProjectComponent} from "./currentProjectComponents.js";
+import {customProjectComponent, createProjectComponent} from "./sidebarComponents.js";
+import { projectFactory, taskFactory } from "./factories";
 import {add, format} from "date-fns";
 
 // make sidebar adjust base on view width
