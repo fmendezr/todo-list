@@ -3,6 +3,10 @@ import closeSymbol from "./img/closeIcon.svg";
 import customProjectSymbol from "./img/customProjectIcon.svg";
 import {projectFactory} from "./factories.js";
 
+//variable 
+
+let customProjectArr = []
+
 // sidebar components 
 
 const customProjectComponent = (project) => {
@@ -86,11 +90,15 @@ const expandedCreateProjectComponent = () => {
     cancelBtn.addEventListener("click", () => {
         projectCreator.remove();
         createProjectComponent();
-    
-    createBtn.addEventListener("click", () => {
-        project = projectFactory(newProjectName.value);
-        createBtn.textContent = project.name
     })
+
+    createBtn.addEventListener("click", () => {
+        console.log(customProjectArr)
+        let newProject = projectFactory(newProjectName.value)
+        customProjectArr.push(newProject);
+        console.log(customProjectArr)
+        projectCreator.remove();
+        createProjectComponent();
     })
 }
 
