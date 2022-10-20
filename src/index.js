@@ -18,12 +18,6 @@ document.getElementById("sidebarTogglerMobile").addEventListener("click", () => 
 // default projects 
 const inbox = projectFactory("inbox")
 
-// active project variable 
-var activeProject = inbox;
-
-// custom projects
-let customProjectsArr = [];
-
 // default render 
 createProjectComponent();
 currentProjectComponent();
