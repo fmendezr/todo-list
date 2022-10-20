@@ -93,10 +93,8 @@ const expandedCreateProjectComponent = () => {
     })
 
     createBtn.addEventListener("click", () => {
-        console.log(customProjectArr)
         let newProject = projectFactory(newProjectName.value)
         customProjectArr.push(newProject);
-        console.log(customProjectArr)
         projectCreator.remove();
         createProjectComponent();
     })
