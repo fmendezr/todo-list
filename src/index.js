@@ -25,11 +25,8 @@ currentProjectComponent();
 // testing and stuff 
 let trialTask = taskFactory("Drive", "G", "2022-11-11", true, true);
 console.log(trialTask)
-let trialProject = projectFactory("trial");
-console.log(trialProject.name);
 
 taskComponent(trialTask);
 taskComponent(trialTask);
 
-customProjectComponent(trialProject);
 
