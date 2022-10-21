@@ -119,4 +119,4 @@ const expandedCreateProjectComponent = () => {
     })
 }
 
-export {createProjectComponent, expandedCreateProjectComponent}
+export {createProjectComponent, expandedCreateProjectComponent, customProjectArr};
