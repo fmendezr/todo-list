@@ -107,11 +107,15 @@ const expandedCreateProjectComponent = () => {
     })
 
     createBtn.addEventListener("click", () => {
-        let newProject = projectFactory(newProjectName.value)
-        customProjectArr.push(newProject);
-        projectCreator.remove();
-        createProjectComponent();
-        entireCustomProjectsComponents()
+        if (customProjectArr.some(element => element.name == newProjectName.value)){
+            alert("This custom project already exists")
+        } else {
+            let newProject = projectFactory(newProjectName.value)
+            customProjectArr.push(newProject);
+            projectCreator.remove();
+            createProjectComponent();
+            entireCustomProjectsComponents()
+        }
     })
 }
 
