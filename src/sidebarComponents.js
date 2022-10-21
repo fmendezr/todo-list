@@ -3,8 +3,11 @@ import closeSymbol from "./img/closeIcon.svg";
 import customProjectSymbol from "./img/customProjectIcon.svg";
 import {projectFactory} from "./factories.js";
 
-//variable 
+// default active project 
+const inbox = projectFactory("Inbox")
 
+//variables
+let activeProject = inbox;
 let customProjectArr = []
 
 // sidebar components 
@@ -21,7 +24,11 @@ const customProjectComponent = (project) => {
     let div = document.createElement("div");
     div.classList.add("customProjectContainer");
     div.id = project.name;
-    document.getElementById("customProjects").insertBefore(div, document.getElementById("addProject"))
+    document.getElementById("customProjects").insertBefore(div, document.getElementById("addProject"));
+
+    div.addEventListener("click", () => {
+        activeProject = project;
+    })
 
     let leftSide = document.createElement("div");
     leftSide.classList.add("leftSideCustomProject")
@@ -46,7 +53,8 @@ const customProjectComponent = (project) => {
     deleteCustomProjectBtn.classList.add("projectIcon");
     rightSide.appendChild(deleteCustomProjectBtn);
 
-    deleteCustomProjectBtn.addEventListener("click", () => {
+    deleteCustomProjectBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
        customProjectArr = customProjectArr.filter(customProject => customProject.name != project.name);
        entireCustomProjectsComponents();
     })
@@ -119,4 +127,4 @@ const expandedCreateProjectComponent = () => {
     })
 }
 
-export {createProjectComponent, expandedCreateProjectComponent, customProjectArr};
+export {createProjectComponent, expandedCreateProjectComponent, activeProject};
