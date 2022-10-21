@@ -1,5 +1,5 @@
 import "./style.css";
-import {taskComponent, currentProjectComponent} from "./currentProjectComponents.js";
+import {currentProjectComponent} from "./currentProjectComponents.js";
 import {createProjectComponent, activeProject} from "./sidebarComponents.js";
 import {add, format} from "date-fns";
 
@@ -17,5 +17,4 @@ document.getElementById("sidebarTogglerMobile").addEventListener("click", () => 
 // default render 
 createProjectComponent();
 currentProjectComponent();
-
 

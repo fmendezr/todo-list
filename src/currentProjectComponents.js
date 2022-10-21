@@ -2,12 +2,13 @@ import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
 import expandSymbol from "./img/arrowUpIcon.svg";
 import unexpandSymbol from "./img/arrowDownIcon.svg";
+import {activeProjectObject} from "./objectHandler";
 
-// current project components 
+// current project components
 
 const currentProjectName = () => {
     const projectName = document.createElement("h1");
-    projectName.textContent = inbox.name;
+    projectName.textContent = activeProjectObject.project.name;
     document.getElementById("currentProject").appendChild(projectName);
 }
 
@@ -180,6 +181,5 @@ const currentProjectComponent = () => {
     currentProjectName();
     addTaskComponent();
 }
-
 
 export {currentProjectName, addTaskComponent, taskComponent, currentProjectComponent};

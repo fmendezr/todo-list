@@ -2,20 +2,14 @@ import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
 import customProjectSymbol from "./img/customProjectIcon.svg";
 import {projectFactory} from "./factories.js";
-
-// default active project 
-const inbox = projectFactory("Inbox")
-
-//variables
-let activeProject = inbox;
-let customProjectArr = []
+import {customProjectsObject, activeProjectObject} from "./objectHandler";
 
 // sidebar components 
 
 
 const entireCustomProjectsComponents = () => {
 document.querySelectorAll(".customProjectContainer").forEach(element => { element.remove(); });
-    customProjectArr.forEach(project => {
+    customProjectsObject.arr.forEach(project => {
         customProjectComponent(project);
     })
 }
@@ -27,7 +21,7 @@ const customProjectComponent = (project) => {
     document.getElementById("customProjects").insertBefore(div, document.getElementById("addProject"));
 
     div.addEventListener("click", () => {
-        activeProject = project;
+        activeProjectActive.changeActiveProject(project);
     })
 
     let leftSide = document.createElement("div");
@@ -55,7 +49,8 @@ const customProjectComponent = (project) => {
 
     deleteCustomProjectBtn.addEventListener("click", (event) => {
         event.stopPropagation();
-       customProjectArr = customProjectArr.filter(customProject => customProject.name != project.name);
+        customProjectsObject.removeCustomProject(project);
+       ;
        entireCustomProjectsComponents();
     })
 }
@@ -115,16 +110,16 @@ const expandedCreateProjectComponent = () => {
     })
 
     createBtn.addEventListener("click", () => {
-        if (customProjectArr.some(element => element.name == newProjectName.value)){
+        if (customProjectsObject.arr.some(element => element.name == newProjectName.value)){
             alert("This custom project already exists")
         } else {
             let newProject = projectFactory(newProjectName.value)
-            customProjectArr.push(newProject);
+            customProjectsObject.addCustomProject(newProject);
             projectCreator.remove();
             createProjectComponent();
             entireCustomProjectsComponents()
-        }
+       }
     })
 }
 
-export {createProjectComponent, expandedCreateProjectComponent, activeProject};
+export {createProjectComponent, expandedCreateProjectComponent};
