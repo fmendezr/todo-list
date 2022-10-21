@@ -9,6 +9,15 @@ let customProjectArr = []
 
 // sidebar components 
 
+
+const entireCustomProjectsComponents = () => {
+document.querySelectorAll(".customProjectContainer").forEach(element => { element.remove(); });
+    console.log(c)
+    customProjectArr.forEach(project => {
+        customProjectComponent(project);
+    })
+}
+
 const customProjectComponent = (project) => {
     let div = document.createElement("div");
     div.classList.add("customProjectContainer");
@@ -97,7 +106,8 @@ const expandedCreateProjectComponent = () => {
         customProjectArr.push(newProject);
         projectCreator.remove();
         createProjectComponent();
+        entireCustomProjectsComponents()
     })
 }
 
-export {customProjectComponent, createProjectComponent, expandedCreateProjectComponent}
+export {createProjectComponent, expandedCreateProjectComponent}
