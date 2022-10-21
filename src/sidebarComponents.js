@@ -12,7 +12,6 @@ let customProjectArr = []
 
 const entireCustomProjectsComponents = () => {
 document.querySelectorAll(".customProjectContainer").forEach(element => { element.remove(); });
-    console.log(c)
     customProjectArr.forEach(project => {
         customProjectComponent(project);
     })
@@ -21,6 +20,7 @@ document.querySelectorAll(".customProjectContainer").forEach(element => { elemen
 const customProjectComponent = (project) => {
     let div = document.createElement("div");
     div.classList.add("customProjectContainer");
+    div.id = project.name;
     document.getElementById("customProjects").insertBefore(div, document.getElementById("addProject"))
 
     let leftSide = document.createElement("div");
@@ -45,6 +45,11 @@ const customProjectComponent = (project) => {
     deleteCustomProjectBtn.src = closeSymbol;
     deleteCustomProjectBtn.classList.add("projectIcon");
     rightSide.appendChild(deleteCustomProjectBtn);
+
+    deleteCustomProjectBtn.addEventListener("click", () => {
+       customProjectArr = customProjectArr.filter(customProject => customProject.name != project.name);
+       entireCustomProjectsComponents();
+    })
 }
 
 const createProjectComponent = () => {
