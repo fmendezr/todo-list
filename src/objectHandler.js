@@ -2,10 +2,10 @@ import {projectFactory} from "./factories";
 
 let inbox = projectFactory("Inbox");
 
-let activeProjectObject = {
+let activeProjectObject  = {
     project: inbox, 
     changeActiveProject(newActiveProject){
-        this.changeActiveProject = newActiveProject;
+        this.project = newActiveProject;
     }
 }
 let customProjectsObject =  {

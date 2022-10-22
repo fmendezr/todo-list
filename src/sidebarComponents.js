@@ -21,7 +21,7 @@ const customProjectComponent = (project) => {
     document.getElementById("customProjects").insertBefore(div, document.getElementById("addProject"));
 
     div.addEventListener("click", () => {
-        activeProjectActive.changeActiveProject(project);
+        activeProjectObject.changeActiveProject(project);
     })
 
     let leftSide = document.createElement("div");
