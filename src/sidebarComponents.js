@@ -1,8 +1,7 @@
 import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
 import customProjectSymbol from "./img/customProjectIcon.svg";
-import {projectFactory} from "./factories.js";
-import {customProjectsObject, activeProjectObject} from "./objectHandler";
+import {customProjectsObject, activeProjectObject, projectFactory} from "./objectHandler";
 
 // sidebar components 
 
@@ -50,7 +49,6 @@ const customProjectComponent = (project) => {
     deleteCustomProjectBtn.addEventListener("click", (event) => {
         event.stopPropagation();
         customProjectsObject.removeCustomProject(project);
-       ;
        entireCustomProjectsComponents();
     })
 }

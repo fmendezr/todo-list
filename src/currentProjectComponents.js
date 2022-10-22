@@ -2,7 +2,7 @@ import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
 import expandSymbol from "./img/arrowUpIcon.svg";
 import unexpandSymbol from "./img/arrowDownIcon.svg";
-import {activeProjectObject} from "./objectHandler";
+import {activeProjectObject, taskFactory} from "./objectHandler";
 
 // current project components
 
@@ -71,16 +71,6 @@ const expandedAddTaskComponent = () => {
     descriptionInput.id = "descriptionInput";
     form.appendChild(descriptionInput);
 
-    let labelNotes = document.createElement("label");
-    labelNotes.textContent = "Notes";
-    labelNotes.for = "notesInput";
-    form.appendChild(labelNotes);
-
-    let notesInput = document.createElement("input");
-    notesInput.type = "text";
-    notesInput.id = "notesInput";
-    form.appendChild(notesInput)
-
     let priorityContainer = document.createElement("div");
     priorityContainer.id = "priorityContainer";
     form.appendChild(priorityContainer)
@@ -104,6 +94,13 @@ const expandedAddTaskComponent = () => {
     createBtn.id = "createTaskBtn";
     createBtn.textContent = "Create";
     div.appendChild(createBtn)
+
+    createBtn.addEventListener("click", () => {
+        let task = taskFactory(nameInput.value, descriptionInput.value, dueDateInput.value, priorityInput.checked, false);
+        taskComponent(task)
+        taskCreator.remove();
+        addTaskComponent();
+    })
 
     let cancelBtn = document.createElement("button");
     cancelBtn.type = "button";
@@ -177,9 +174,14 @@ const expandedTaskComponent = (taskObject, container, expandBtn, leftSideEssenti
     })
 }
 
+const  entiretasksComponent = () => {
+    activeProjectObject.project.tasks.forEach(task => taskComponent(task))
+}
+
 const currentProjectComponent = () => {
     currentProjectName();
     addTaskComponent();
+    entiretasksComponent();
 }
 
-export {currentProjectName, addTaskComponent, taskComponent, currentProjectComponent};
+export {currentProjectComponent};

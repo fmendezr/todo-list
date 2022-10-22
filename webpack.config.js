@@ -4,9 +4,9 @@ module.exports = {
   mode: 'development',
   entry: {
     index: "./src/index.js",
-    factories: "./src/factories.js",
     currentProjectComponents: "./src/currentProjectComponents.js",
     sidebarComponents: "./src/sidebarComponents.js",
+    objectHandler: "./src/objectHandler.js"
   },
   output: {
     filename: '[name].bundle.js',
