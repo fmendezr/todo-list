@@ -51,7 +51,11 @@ const customProjectComponent = (project) => {
     deleteCustomProjectBtn.addEventListener("click", (event) => {
         event.stopPropagation();
         customProjectsObject.removeCustomProject(project);
-       entireCustomProjectsComponents();
+        entireCustomProjectsComponents();
+        if (activeProjectObject.project == project){
+            activeProjectObject.defaultActiveProject();
+            currentProjectComponent();
+        }
     })
 }
 

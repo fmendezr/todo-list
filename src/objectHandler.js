@@ -22,6 +22,9 @@ let activeProjectObject  = {
     project: inbox, 
     changeActiveProject(newActiveProject){
         this.project = newActiveProject;
+    },
+    defaultActiveProject(){
+        this.project = inbox;
     }
 }
 let customProjectsObject =  {
