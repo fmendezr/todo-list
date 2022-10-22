@@ -7,10 +7,10 @@ const taskFactory = (name, description, dueDate, priority, completed = false) =>
 const projectFactory = (name) => {
     let tasks = [] 
     const addTask = (newtask) => {
-        this.tasks.push(newtask);
+        tasks.push(newtask);
     }
     const removeTask = (exTask) => {
-        this.tasks = this.tasks.filter(task => task.name != exTask)
+        tasks = tasks.filter(task => task.name != exTask)
     }
     return {name, tasks, addTask, removeTask }
 }

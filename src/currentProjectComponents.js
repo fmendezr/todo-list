@@ -97,7 +97,8 @@ const expandedAddTaskComponent = () => {
 
     createBtn.addEventListener("click", () => {
         let task = taskFactory(nameInput.value, descriptionInput.value, dueDateInput.value, priorityInput.checked, false);
-        taskComponent(task)
+        activeProjectObject.project.addTask(task);
+        taskComponent(task);
         taskCreator.remove();
         addTaskComponent();
     })
