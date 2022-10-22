@@ -2,6 +2,7 @@ import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
 import customProjectSymbol from "./img/customProjectIcon.svg";
 import {customProjectsObject, activeProjectObject, projectFactory} from "./objectHandler";
+import { currentProjectComponent } from "./currentProjectComponents";
 
 // sidebar components 
 
@@ -21,6 +22,7 @@ const customProjectComponent = (project) => {
 
     div.addEventListener("click", () => {
         activeProjectObject.changeActiveProject(project);
+        currentProjectComponent();
     })
 
     let leftSide = document.createElement("div");

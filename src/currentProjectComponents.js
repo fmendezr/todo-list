@@ -179,6 +179,11 @@ const  entiretasksComponent = () => {
 }
 
 const currentProjectComponent = () => {
+    let child = document.getElementById("currentProject").lastElementChild;
+    while (child){
+        document.getElementById("currentProject").removeChild(child);
+        child = document.getElementById("currentProject").lastElementChild;
+    } 
     currentProjectName();
     addTaskComponent();
     entiretasksComponent();
