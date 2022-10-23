@@ -1,7 +1,7 @@
 import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
 import customProjectSymbol from "./img/customProjectIcon.svg";
-import {customProjectsObject, activeProjectObject, projectFactory, inbox, today} from "./objectHandler";
+import {customProjectsObject, activeProjectObject, projectFactory, inbox, today, thisWeek} from "./objectHandler";
 import { currentProjectComponent } from "./currentProjectComponents";
 
 // sidebar components 
@@ -16,6 +16,12 @@ document.getElementById("today").addEventListener("click", () => {
     activeProjectObject.changeActiveProject(today);
     currentProjectComponent();
 });
+
+document.getElementById("thisWeek").addEventListener("click", () => {
+    thisWeek.updateArray();
+    activeProjectObject.changeActiveProject(thisWeek);
+    currentProjectComponent();
+})
 
 const entireCustomProjectsComponents = () => {
 document.querySelectorAll(".customProjectContainer").forEach(element => { element.remove(); });

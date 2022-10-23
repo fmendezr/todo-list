@@ -1,3 +1,5 @@
+import intervalToDuration from 'date-fns/intervalToDuration'
+
 // Set up task factory
 
 const taskFactory = (name, description, dueDate, priority, completed = false) => {
@@ -19,14 +21,23 @@ let thisWeek = projectFactory("This Week");
 
 //add methods for updating objects
 
-const getCurrentFormattedDate = () => {
+today.updateArray = () => {
     let date = new Date();
-    return date.getFullYear() + "-" + ( date.getMonth() +1) + "-" + date.getDate();
+    let formattedDate = date.getFullYear() + "-" + ( date.getMonth() +1) + "-" + date.getDate();
+    today.tasks = inbox.tasks.filter(task => task.dueDate == formattedDate);
 }
 
-today.updateArray = () => {
-    today.tasks = inbox.tasks.filter(task => task.dueDate == getCurrentFormattedDate());
+thisWeek.updateArray = () => {
+    let intervalCalc = (date) => {
+        let parts = date.split("-"); 
+        return intervalToDuration({
+        start: new Date(),
+        end: new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]), 0, 0, 0)
+       })
+    }
+    thisWeek.tasks = inbox.tasks.filter(task => intervalCalc(task.dueDate).days <= 7);
 }
+
 
 // other stuff
 
@@ -49,4 +60,4 @@ let customProjectsObject =  {
     }
 };
 
-export {activeProjectObject, customProjectsObject, projectFactory, taskFactory, today, inbox}
+export {activeProjectObject, customProjectsObject, projectFactory, taskFactory, today, inbox, thisWeek}
