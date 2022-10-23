@@ -5,14 +5,8 @@ const taskFactory = (name, description, dueDate, priority, completed = false) =>
 
 // Set up project factory 
 const projectFactory = (name) => {
-    let tasks = [] 
-    const addTask = (newtask) => {
-        tasks.push(newtask);
-    }
-    const removeTask = (exTask) => {
-        tasks = tasks.filter(task => task.name != exTask)
-    }
-    return {name, tasks, addTask, removeTask }
+    let tasks = []; 
+    return {name, tasks, addTask(newtask){this.tasks.push(newtask);}, removeTask(exTask){this.tasks = this.tasks.filter(task => task.name != exTask.name)} }
 }
 
 // create default projects 

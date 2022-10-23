@@ -153,6 +153,11 @@ const taskComponent = (taskObject) => {
     eliminateTask.src = closeSymbol;
     eliminateTask.classList.add("projectIcon");
     rightSideEssentialInfo.appendChild(eliminateTask);
+
+    eliminateTask.addEventListener("click", () => {
+        activeProjectObject.project.removeTask(taskObject);
+        currentProjectComponent();
+    })
 }
 
 const expandedTaskComponent = (taskObject, container, expandBtn, leftSideEssentialInfo) => {
