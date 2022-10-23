@@ -1,11 +1,21 @@
 import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
 import customProjectSymbol from "./img/customProjectIcon.svg";
-import {customProjectsObject, activeProjectObject, projectFactory} from "./objectHandler";
+import {customProjectsObject, activeProjectObject, projectFactory, inbox, today} from "./objectHandler";
 import { currentProjectComponent } from "./currentProjectComponents";
 
 // sidebar components 
 
+document.getElementById("inbox").addEventListener("click", () => {
+    activeProjectObject.changeActiveProject(inbox);
+    currentProjectComponent();
+});
+
+document.getElementById("today").addEventListener("click", () => {
+    today.updateArray();
+    activeProjectObject.changeActiveProject(today);
+    currentProjectComponent();
+});
 
 const entireCustomProjectsComponents = () => {
 document.querySelectorAll(".customProjectContainer").forEach(element => { element.remove(); });

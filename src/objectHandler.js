@@ -1,16 +1,34 @@
 // Set up task factory
+
 const taskFactory = (name, description, dueDate, priority, completed = false) => {
     return {name, description, dueDate, priority, completed}
 }
 
 // Set up project factory 
+
 const projectFactory = (name) => {
     let tasks = []; 
-    return {name, tasks, addTask(newtask){this.tasks.push(newtask);}, removeTask(exTask){this.tasks = this.tasks.filter(task => task.name != exTask.name)} }
+    return {name, tasks, addTask(newtask){this.tasks.push(newtask)}, removeTask(exTask){this.tasks = this.tasks.filter(task => task.name != exTask.name)}}
 }
 
 // create default projects 
+
 let inbox = projectFactory("Inbox");
+let today = projectFactory("Today");
+let thisWeek = projectFactory("This Week");
+
+//add methods for updating objects
+
+const getCurrentFormattedDate = () => {
+    let date = new Date();
+    return date.getFullYear() + "-" + ( date.getMonth() +1) + "-" + date.getDate();
+}
+
+today.updateArray = () => {
+    today.tasks = inbox.tasks.filter(task => task.dueDate == getCurrentFormattedDate());
+}
+
+// other stuff
 
 let activeProjectObject  = {
     project: inbox, 
@@ -31,4 +49,4 @@ let customProjectsObject =  {
     }
 };
 
-export {activeProjectObject, customProjectsObject, projectFactory, taskFactory}
+export {activeProjectObject, customProjectsObject, projectFactory, taskFactory, today, inbox}
