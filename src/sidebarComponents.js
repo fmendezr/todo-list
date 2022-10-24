@@ -7,17 +7,23 @@ import { currentProjectComponent } from "./currentProjectComponents";
 // sidebar components 
 
 document.getElementById("inbox").addEventListener("click", () => {
+    document.getElementsByClassName("activeProject")[0].classList.remove("activeProject");
+    document.getElementById("inbox").classList.add("activeProject");
     activeProjectObject.changeActiveProject(inbox);
     currentProjectComponent();
 });
 
 document.getElementById("today").addEventListener("click", () => {
+    document.getElementsByClassName("activeProject")[0].classList.remove("activeProject");
+    document.getElementById("today").classList.add("activeProject");
     today.updateArray();
     activeProjectObject.changeActiveProject(today);
     currentProjectComponent();
 });
 
 document.getElementById("thisWeek").addEventListener("click", () => {
+    document.getElementsByClassName("activeProject")[0].classList.remove("activeProject");
+    document.getElementById("thisWeek").classList.add("activeProject");
     thisWeek.updateArray();
     activeProjectObject.changeActiveProject(thisWeek);
     currentProjectComponent();
@@ -37,6 +43,8 @@ const customProjectComponent = (project) => {
     document.getElementById("customProjects").insertBefore(div, document.getElementById("addProject"));
 
     div.addEventListener("click", () => {
+        document.getElementsByClassName("activeProject")[0].classList.remove("activeProject");
+        div.classList.add("activeProject");
         activeProjectObject.changeActiveProject(project);
         currentProjectComponent();
     })
