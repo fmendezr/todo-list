@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Teko">
+    <title>Todo List</title>
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/93d6cb2964.js" crossorigin="anonymous"></script>
+    <header>
+        <div id="logo">
+            <img src="../src/img/checkbox-marked-circle-plus-outline.svg">
+            <h1>Todo List</h1>
+        </div>
+        <button id="sidebarTogglerMobile">
+            <img src="../src/img/format-list-bulleted.svg">
+        </button>
+    </header>
+    <main>
+        <div id="sidebar">
+            <div id="defaultProjects">
+                <div id="inbox" class="projectContainer activeProject">
+                    <img src="../src/img/inboxIcon.svg" class="projectIcon" alt="filing cabinet">
+                    <p>Inbox</p>
+                </div>
+                <div id="today" class="projectContainer">
+                    <img src="../src/img/calendarTodayIcon.svg" class="projectIcon" alt="day marked in calender">
+                    <p>Today</p>
+                </div>
+                <div id="thisWeek" class="projectContainer">
+                    <img src="../src/img/calenderWeekIcon.svg" class="projectIcon" alt="day range marked in calender">
+                    <p>This Week</p>
+                </div>
+            </div>
+            <div id="customProjects">
+                <p>Projects</p>
+            </div>
+        </div>
+        <div id="currentProject">
+        </div>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2022 fmendezr <a href="https://github.com/fmendezr"><i class="fa-brands fa-github"></i></a></p>
+    </footer>
+    <script src="./index.bundle.js"></script>
+</body>
+</html>
