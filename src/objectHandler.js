@@ -35,7 +35,14 @@ thisWeek.updateArray = () => {
         end: new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]), 0, 0, 0)
        })
     }
-    thisWeek.tasks = inbox.tasks.filter(task => intervalCalc(task.dueDate).days <= 7);
+    thisWeek.tasks = [];
+    for (let i = 0; i < inbox.tasks.length; i++){
+        if (inbox.tasks[i].dueDate != ''){
+            if (intervalCalc(inbox.tasks[i].dueDate).days <= 7){
+                thisWeek.tasks.push(inbox.tasks[i]);
+            }
+        }
+    }
 }
 
 
