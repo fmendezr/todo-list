@@ -17,7 +17,8 @@ header {
     justify-content: space-between;
     padding: 0 2.5vw;
     height: 5rem;
-    background-color: rgb(255, 0, 93);
+    background-color: rgba(192, 191, 191, 0.592);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 #logo {
@@ -66,7 +67,8 @@ main {
 #sidebar {
     width: 22.5vw;
     padding-left: 2.5vw;
-    background-color: rgb(2, 255, 238);
+    background-color: rgba(174, 174, 210, 0.526);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 } 
 
 #currentProject {
@@ -74,7 +76,7 @@ main {
     flex-direction: column;
     width: 72.5vw;
     padding-right: 2.5vw;
-    background-color: rgb(174, 255, 0);
+    background-color: rgb(255, 255, 255);
 }
 
 /* sidebar */
@@ -91,7 +93,7 @@ main {
 }
 
 .projectContainer:hover, .customProjectContainer:hover {
-    background-color: blanchedalmond;
+    background-color: rgb(192, 191, 191, 0.592);
 }
 
 .projectContainer.active {
@@ -158,6 +160,10 @@ main {
     font-size: 1.75rem;
 }
 
+.activeProject {
+    border: 3px solid rgba(192, 191, 191, 0.592);;
+}
+
 /* Current Project */
 
 #currentProject > h1 {
@@ -170,7 +176,7 @@ main {
     align-items: center;
     margin: 0 1.5rem 1rem 1.5rem;
     border-radius: 1rem;
-    background-color: blanchedalmond;
+    border: 3px solid rgba(174, 174, 210, 0.526);
 }
 
 #addTask:hover {
@@ -187,7 +193,7 @@ main {
     display: flex;
     flex-direction: column;
     margin: 0 1.5rem 1rem 1.5rem;
-    background-color: blanchedalmond;
+    border: 3px solid rgba(174, 174, 210, 0.526);
     border-radius: 1rem;
     padding: 1rem 1rem 1rem;;
 }
@@ -202,6 +208,7 @@ main {
     border-radius: 0.25rem;
     padding-left: 0.5rem;
     margin-bottom: 1rem;
+    border: 3px solid rgba(174, 174, 210, 0.526);
 }
 
 #priorityContainer {
