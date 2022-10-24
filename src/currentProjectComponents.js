@@ -2,7 +2,7 @@ import addSymbol from "./img/addIcon.svg";
 import closeSymbol from "./img/closeIcon.svg";
 import expandSymbol from "./img/arrowUpIcon.svg";
 import unexpandSymbol from "./img/arrowDownIcon.svg";
-import {activeProjectObject, taskFactory} from "./objectHandler";
+import {activeProjectObject, inbox, taskFactory} from "./objectHandler";
 
 // current project components
 
@@ -155,6 +155,9 @@ const taskComponent = (taskObject) => {
     rightSideEssentialInfo.appendChild(eliminateTask);
 
     eliminateTask.addEventListener("click", () => {
+        if(activeProjectObject.project.name == "This Week" || activeProjectObject.project.name == "Today"){
+            inbox.removeTask(taskObject);
+        }
         activeProjectObject.project.removeTask(taskObject);
         currentProjectComponent();
     })
