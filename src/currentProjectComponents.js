@@ -193,6 +193,9 @@ const currentProjectComponent = () => {
     currentProjectName();
     addTaskComponent();
     entiretasksComponent();
+    if(activeProjectObject.project.name == "This Week" || activeProjectObject.project.name == "Today"){
+        document.getElementById("addTask").remove();
+    }
 }
 
 export {currentProjectComponent};
